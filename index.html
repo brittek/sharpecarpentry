@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+
+<head>
+	<!-- ===== Core Meta ===== -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Sharpe Carpentry — Precision Craftsmanship Sydney</title>
+	<meta name="description" content="Built to last. Crafted to impress. Decks, pergolas, carports, custom joinery, and timber staircases across Sydney — owner-led quality from quote to handover." />
+	<meta name="robots" content="index,follow,max-image-preview:large" />
+	<meta name="color-scheme" content="dark light" />
+	<meta name="theme-color" content="#16A34A" />
+	<link rel="canonical" href="https://sharpecarpentry.com.au/" />
+
+	<!-- ===== Social ===== -->
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Sharpe Carpentry — Precision Craftsmanship Sydney" />
+	<meta property="og:description" content="Decks, pergolas, carports, custom joinery, and timber staircases across Sydney — owner-led quality from quote to handover." />
+	<meta property="og:url" content="https://sharpecarpentry.com.au/" />
+	<meta property="og:site_name" content="Sharpe Carpentry" />
+	<meta property="og:locale" content="en_AU" />
+	<meta property="og:image" content="https://assets.codepen.io/9806267/Premium+outdoor+deck+with+concealed+fixings.jpg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Sharpe Carpentry — Precision Craftsmanship Sydney" />
+	<meta name="twitter:description" content="12+ years of craftsmanship. Decks, pergolas, carports, cladding, roofing, and renovations built to last in Sydney's conditions." />
+	<meta name="twitter:image" content="https://assets.codepen.io/9806267/Premium+outdoor+deck+with+concealed+fixings.jpg" />
+
+	<!-- ===== Fonts & Preconnect ===== -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+
+	<!-- ===== LCP Preload (Deck hero) ===== -->
+	<link rel="preload" as="image" fetchpriority="high" href="https://assets.codepen.io/9806267/Premium+outdoor+deck+with+concealed+fixings.jpg" imagesizes="100vw" />
+
+	<!-- ===== Favicon ===== -->
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' stroke='none' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2316A34A'/%3E%3Ctext x='50' y='58' font-family='Inter,system-ui,sans-serif' font-size='56' text-anchor='middle' fill='white'%3ESC%3C/text%3E%3C/svg%3E" />
+
+	<!-- ===== Styles ===== -->
+	<style>
+		:root {
+			--bg-900: #0B1220;
+			--bg-800: #111827;
+			--bg-700: #141C2A;
+			--text-100: #F3F4F6;
+			--text-300: #D1D5DB;
+			--muted-400: #9CA3AF;
+			--accent: #16A34A;
+			--accent-2: #22C55E;
+			--container: 1200px;
+			--gutter: clamp(16px, 3vw, 28px);
+			--radius: 14px;
+			--shadow: 0 10px 30px rgba(0, 0, 0, .35);
+			--font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif;
+			--font-head: 'Manrope', 'Inter', system-ui, sans-serif
+		}
+
+		*,
+		*::before,
+		*::after {
+			box-sizing: border-box
+		}
+
+		html {
+			background: var(--bg-900);
+			color: var(--text-100);
+			scroll-behavior: smooth
+		}
+
+		/* Add reduced motion support */
+		@media (prefers-reduced-motion: reduce) {
+			html {
+				scroll-behavior: auto
+			}
+
+			*,
+			*::before,
+			*::after {
+				animation-duration: 0.01ms !important;
+				animation-iteration-count: 1 !important;
+				transition-duration: 0.01ms !important;
+			}
+		}
+
+		body {
+			margin: 0;
+			font-family: var(--font-body);
+			overflow-x: hidden
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-family: var(--font-head);
+			letter-spacing: -.01em
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+			display: block
+		}
+
+		a {
+			color: inherit;
+			text-decoration: none
+		}
+
+		/* Add skip link for accessibility */
+		.skip-link {
+			position: absolute;
+			top: -40px;
+			left: 0;
+			background: var(--accent);
+			color: #041107;
+			padding: 0.75rem 1.5rem;
+			text-decoration: none;
+			font-weight: 700;
+			border-radius: 0 0 8px 0;
+			z-index: 100;
+		}
+
+		.skip-link:focus {
+			top: 0;
+		}
+
+		/* Add screen reader only class */
+		.sr-only {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			white-space: nowrap;
+			border-width: 0;
+		}
+
+		.container {
+			width: 100%;
+			max-width: var(--container);
+			margin-inline: auto;
+			padding-inline: var(--gutter)
+		}
+
+		section[cv] {
+			content-visibility: auto;
+			contain-intrinsic-size: 1px 1000px
+		}
+
+		/* Enhanced focus states for accessibility */
+		*:focus-visible {
+			outline: 3px solid var(--accent-2);
+			outline-offset: 2px;
+		}
+
+		/* Header */
+		header.site-header {
+			position: sticky;
+			top: 0;
+			z-index: 50;
+			backdrop-filter: saturate(160%) blur(10px);
+			background: linear-gradient(180deg, rgba(11, 18, 32, .92), rgba(11, 18, 32, .6) 60%, transparent);
+			border-bottom: 1px solid rgba(255, 255, 255, .06)
+		}
+
+		.nav {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			height: 68px
+		}
+
+		.brand {
+			display: flex;
+			gap: .6rem;
+			align-items: center;
+			font-weight: 800;
+			transition: opacity 0.2s;
+		}
+
+		.brand:hover {
+			opacity: 0.85;
+		}
+
+		.brand span:first-child {
+			color: #02C996;
+			text-shadow: 0 0 18px rgba(2, 201, 150, .25)
+		}
+
+		/* Enhanced button states */
+		.btn {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			border: 0;
+			border-radius: 999px;
+			padding: .9rem 1.25rem;
+			font-weight: 800;
+			background: linear-gradient(135deg, var(--accent), var(--accent-2));
+			color: #041107;
+			cursor: pointer;
+			transition: transform 0.2s, box-shadow 0.2s;
+			box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+		}
+
+		.btn:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 6px 20px rgba(22, 163, 74, 0.4);
+		}
+
+		.btn:active {
+			transform: translateY(0);
+			box-shadow: 0 2px 8px rgba(22, 163, 74, 0.3);
+		}
+
+		/* Hero */
+		.hero {
+			position: relative;
+			min-height: clamp(520px, 100svh, 860px);
+			display: grid;
+			place-items: end;
+			overflow: hidden
+		}
+
+		.hero .bg {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+			z-index: -2
+		}
+
+		.hero .overlay {
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+			background: linear-gradient(0deg, rgba(11, 18, 32, .92) 0%, rgba(11, 18, 32, .6) 40%, rgba(11, 18, 32, .2) 100%)
+		}
+
+		.hero .content {
+			width: min(1100px, 92vw);
+			margin-inline: auto;
+			padding: clamp(3.8rem, 8vw, 6rem) var(--gutter) clamp(5rem, 10vw, 7rem)
+		}
+
+		.kicker {
+			font-weight: 700;
+			letter-spacing: .1em;
+			color: var(--accent-2);
+			text-transform: uppercase;
+			font-size: .85rem;
+			margin-bottom: .4rem
+		}
+
+		.hero h1 {
+			font-size: clamp(2rem, 5vw, 3rem);
+			line-height: 1.08;
+			margin: .2rem 0 .5rem
+		}
+
+		.hero h2 {
+			font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+			color: var(--text-300);
+			margin: 0 0 .6rem
+		}
+
+		.bullets {
+			display: flex;
+			flex-wrap: wrap;
+			gap: .5rem 1.25rem;
+			padding: 0;
+			margin: 1rem 0 0;
+			list-style: none
+		}
+
+		.bullets li {
+			position: relative;
+			padding-left: 1.25rem
+		}
+
+		.bullets li::before {
+			content: '✓';
+			position: absolute;
+			left: 0;
+			color: var(--accent-2);
+			font-weight: 800
+		}
+
+		/* Gallery */
+		#gallery .grid {
+			display: grid;
+			gap: clamp(10px, 2vw, 14px)
+		}
+
+		@media (min-width:720px) {
+			#gallery .grid {
+				grid-template-columns: repeat(2, 1fr)
+			}
+		}
+
+		@media (min-width:1100px) {
+			#gallery .grid {
+				grid-template-columns: repeat(4, 1fr)
+			}
+		}
+
+		.thumb {
+			width: 100%;
+			aspect-ratio: 4/3;
+			object-fit: cover;
+			border-radius: 12px;
+			border: 1px solid rgba(255, 255, 255, .06);
+			box-shadow: var(--shadow);
+			cursor: zoom-in;
+			transition: transform .2s
+		}
+
+		.thumb:hover {
+			transform: scale(1.03)
+		}
+
+		/* Contact + Footer */
+		.contact {
+			background: linear-gradient(0deg, rgba(34, 197, 94, .08), transparent 55%)
+		}
+
+		/* Enhanced input and textarea states */
+		input,
+		textarea,
+		select {
+			width: 100%;
+			padding: .9rem 1rem;
+			background: #0f1724;
+			border: 1px solid rgba(255, 255, 255, .08);
+			color: var(--text-100);
+			border-radius: 12px;
+			outline: 0;
+			transition: border-color 0.2s, box-shadow 0.2s;
+		}
+
+		input:focus,
+		textarea:focus,
+		select:focus {
+			border-color: var(--accent-2);
+			box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+		}
+
+		input:invalid:not(:placeholder-shown),
+		textarea:invalid:not(:placeholder-shown) {
+			border-color: #ef4444;
+		}
+
+		input:valid:not(:placeholder-shown),
+		textarea:valid:not(:placeholder-shown) {
+			border-color: var(--accent);
+		}
+
+		textarea {
+			min-height: 140px;
+			resize: vertical;
+		}
+
+		footer {
+			padding: 2rem 0;
+			border-top: 1px solid rgba(255, 255, 255, .08)
+		}
+
+		.foot {
+			display: grid;
+			gap: 1rem;
+			align-items: center
+		}
+
+		@media (min-width:720px) {
+			.foot {
+				grid-template-columns: auto 1fr auto
+			}
+		}
+
+		/* Enhanced footer links */
+		footer a {
+			transition: color 0.2s;
+		}
+
+		footer a:hover {
+			color: var(--accent-2);
+		}
+
+		/* Lightbox */
+		#lightbox {
+			position: fixed;
+			inset: 0;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			background: rgba(0, 0, 0, .88);
+			z-index: 1000;
+			padding: 2rem
+		}
+
+		#lightbox img {
+			max-width: 90vw;
+			max-height: 85vh;
+			border-radius: 12px;
+			box-shadow: 0 18px 50px rgba(0, 0, 0, .6)
+		}
+
+		#lightbox button {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			border: 0;
+			background: #0008;
+			color: #fff;
+			font-size: 2rem;
+			width: 44px;
+			height: 44px;
+			border-radius: 8px;
+			cursor: pointer;
+			transition: background 0.2s;
+		}
+
+		#lightbox button:hover {
+			background: #000c;
+		}
+
+		/* Scroll progress */
+		.scroll-progress {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 3px;
+			background: linear-gradient(90deg, var(--accent), var(--accent-2));
+			transform-origin: 0%;
+			z-index: 100;
+			transform: scaleX(0)
+		}
+	</style>
+
+	<!-- ===== Analytics ===== -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJL39PD4F4"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments)
+		};
+		gtag('js', new Date());
+		gtag('config', 'G-KJL39PD4F4', {
+			anonymize_ip: true
+		});
+	</script>
+</head>
+
+<body>
+	<!-- Add skip link for keyboard navigation -->
+	<a href="#main" class="skip-link">Skip to main content</a>
+
+	<!-- Progress -->
+	<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+	<!-- Header -->
+	<header class="site-header" role="banner" id="header">
+		<nav class="container nav" aria-label="Primary">
+			<a href="#decking" class="brand" aria-label="Sharpe Carpentry home"><span>Sharpe</span><span>Carpentry</span></a>
+			<a class="btn" href="#contact" aria-label="Free Quote">Free Quote</a>
+		</nav>
+	</header>
+
+	<main id="main">
+		<!-- HERO / Decking (LCP) -->
+		<section class="hero" id="decking" aria-label="Decking & Outdoor Living">
+			<img class="bg" src="https://assets.codepen.io/9806267/Premium+outdoor+deck+with+concealed+fixings.jpg" alt="Premium hardwood/composite deck engineered for Sydney's climate, with concealed fixings and long-life finish" loading="eager" fetchpriority="high" decoding="async" width="1440" height="1920" />
+			<div class="overlay" aria-hidden="true"></div>
+			<div class="content">
+				<div class="kicker">Decking &amp; Outdoor Living</div>
+				<h1>Premium decks engineered for Sydney conditions</h1>
+				<h2>Concealed fixings. Sharp edges. Long-life finishes.</h2>
+				<ul class="bullets">
+					<li>Spotted gum &amp; composite</li>
+					<li>Entertainment &amp; pool zones</li>
+					<li>Low-maintenance coatings</li>
+					<li>Steps, benches &amp; privacy</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- PERGOLAS -->
+		<section class="hero" id="pergolas" aria-label="Pergolas & Shade Structures" cv>
+			<img class="bg" src="https://assets.codepen.io/9806267/CarportPergolaSharpeCarpentry.jpg" alt="Architectural pergola and back deck with integrated lighting and weather-friendly detailing" loading="lazy" decoding="async" width="7334" height="4896" />
+			<div class="overlay" aria-hidden="true"></div>
+			<div class="content">
+				<div class="kicker">Pergolas &amp; Shade Structures</div>
+				<h1>Architectural shade with integrated services</h1>
+				<h2>Louvred &amp; fixed systems. UV/weather control. Clean detailing.</h2>
+				<ul class="bullets">
+					<li>Built-in lighting &amp; electrical</li>
+					<li>Year-round comfort</li>
+					<li>Property value uplift</li>
+					<li>Minimal profiles</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- CARPORTS -->
+		<section class="hero" id="carports" aria-label="Carports" cv>
+			<img class="bg" src="https://assets.codepen.io/9806267/CaringbahConstructionSite-SharpeCarpentry.JPG" alt="Engineered external structure with correct falls, drainage, and durable finishes" loading="lazy" decoding="async" width="1170" height="850" />
+			<div class="overlay" aria-hidden="true"></div>
+			<div class="content">
+				<div class="kicker">Carports</div>
+				<h1>Engineered protection aligned to your façade</h1>
+				<h2>Correct falls. Drainage. Durable finishes. Wind &amp; load engineered.</h2>
+				<ul class="bullets">
+					<li>Timber or steel frames</li>
+					<li>AS 4055 wind &amp; load</li>
+					<li>Integrated gutters &amp; drainage</li>
+					<li>Architectural alignment</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- RENOVATIONS -->
+		<section class="hero" id="renovations" aria-label="Renovations & Framing" cv>
+			<img class="bg" src="https://assets.codepen.io/9806267/Structural+renovation+work.webp" alt="Structural rework with framing, bracing, and clean fix-out ready for renovation finishes" loading="lazy" decoding="async" width="1440" height="1920" />
+			<div class="overlay" aria-hidden="true"></div>
+			<div class="content">
+				<div class="kicker">Renovations &amp; Framing</div>
+				<h1>Structural reworks with clean fix-out</h1>
+				<h2>Compliant documentation and coordinated trades. From wall reconfiguration to full extensions.</h2>
+				<ul class="bullets">
+					<li>Wall &amp; roof reconfiguration</li>
+					<li>Framing, bracing &amp; fix-out</li>
+					<li>Trade coordination</li>
+					<li>BCA compliant</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- JOINERY -->
+		<section class="hero" id="joinery" aria-label="Custom Joinery & Fitouts" cv>
+			<img class="bg" src="https://assets.codepen.io/9806267/Expert+roofing+installation.jpg" alt="Precision carpentry detailing suitable for bespoke joinery and fitouts" loading="lazy" decoding="async" width="1170" height="850" />
+			<div class="overlay" aria-hidden="true"></div>
+			<div class="content">
+				<div class="kicker">Custom Joinery &amp; Fitouts</div>
+				<h1>Bespoke fabrication. Zero-tolerance detailing.</h1>
+				<h2>Premium materials and precision installs for residential and commercial spaces.</h2>
+			</div>
+		</section>
+
+		<!-- CLADDING -->
+		<section class="hero" id="cladding" aria-label="James Hardie Cladding" cv>
+			<img class="bg" src="https://assets.codepen.io/9806267/CladdingShapreCarpentry.webp" alt="James Hardie cladding with correct flashings, trims and BAL-considered façade detailing" loading="lazy" decoding="async" width="3898" height="2364" />
+			<div class="overlay" aria-hidden="true"></div>
+			<div class="content">
+				<div class="kicker">James Hardie Cladding</div>
+				<h1>Contemporary façades. Low maintenance.</h1>
+				<h2>Proper flashings and trims. Weather &amp; fire resistance (BAL-rated).</h2>
+				<ul class="bullets">
+					<li>Modern profiles &amp; systems</li>
+					<li>Correct flashing &amp; sarking</li>
+					<li>Colour &amp; finish specification</li>
+					<li>High performance</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- ROOFING -->
+		<section class="hero" id="roofing" aria-label="Advanced Roofing (Hip & Valley)" cv>
+			<img class="bg" src="https://assets.codepen.io/9806267/Advanced+Roofing+(Hip+%26+Valley).jpg" alt="Advanced hip and valley roofing with clean valleys, correct falls, and compliant tie-downs" loading="lazy" decoding="async" width="1170" height="1548" />
+			<div class="overlay" aria-hidden="true"></div>
+			<div class="content">
+				<div class="kicker">Advanced Roofing (Hip &amp; Valley)</div>
+				<h1>Architectural geometry. Durable detailing.</h1>
+				<h2>Clean valleys. Correct falls. Compliant tie-downs &amp; insulation.</h2>
+			</div>
+		</section>
+
+		<!-- Recent Work (lightbox) -->
+		<section class="container" id="gallery" aria-label="Recent Work" cv style="padding:clamp(3rem,8vw,5rem) 0;">
+			<h2 style="text-align:center;margin:0 0 .5rem;font-size:clamp(1.8rem,4vw,2.5rem)">Recent Work</h2>
+			<p style="text-align:center;color:var(--text-300);margin:0 auto 2rem;max-width:60ch">Explore our portfolio of precision craftsmanship across Sydney</p>
+			<div class="grid" role="list">
+				<img class="thumb" role="listitem" alt="Premium outdoor deck with concealed fixings" src="https://assets.codepen.io/9806267/Premium+outdoor+deck+with+concealed+fixings.jpg" loading="lazy" decoding="async" width="1440" height="1920" />
+				<img class="thumb" role="listitem" alt="Modern pergola and carport structure with integrated lighting" src="https://assets.codepen.io/9806267/CarportPergolaSharpeCarpentry.jpg" loading="lazy" decoding="async" width="7334" height="4896" />
+				<img class="thumb" role="listitem" alt="Contemporary James Hardie cladding installation with clean detailing" src="https://assets.codepen.io/9806267/CladdingShapreCarpentry.webp" loading="lazy" decoding="async" width="3898" height="2364" />
+				<img class="thumb" role="listitem" alt="Expert roofing installation detail" src="https://assets.codepen.io/9806267/Expert+roofing+installation.jpg" loading="lazy" decoding="async" width="1170" height="850" />
+				<img class="thumb" role="listitem" alt="Caringbah construction site progress — tie-downs, falls and cappings" src="https://assets.codepen.io/9806267/CaringbahConstructionSite-SharpeCarpentry.JPG" loading="lazy" decoding="async" width="1170" height="850" />
+				<img class="thumb" role="listitem" alt="Structural renovation and framing work" src="https://assets.codepen.io/9806267/Structural+renovation+work.webp" loading="lazy" decoding="async" width="1440" height="1920" />
+				<img class="thumb" role="listitem" alt="Advanced roofing — hip and valley geometry" src="https://assets.codepen.io/9806267/Advanced+Roofing+(Hip+%26+Valley).jpg" loading="lazy" decoding="async" width="1170" height="1548" />
+			</div>
+		</section>
+
+		<!-- Contact -->
+		<section id="contact" class="contact" aria-labelledby="contact-heading" cv style="padding:clamp(3rem,8vw,5rem) 0;">
+			<div class="container" style="display:grid;gap:2rem">
+				<div>
+					<span style="display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0b120b;padding:.4rem .7rem;border-radius:999px;font-weight:800;font-size:.75rem">Free, no-obligation quotes</span>
+					<h2 id="contact-heading" style="margin:.6rem 0 1rem;font-size:clamp(1.8rem,4vw,2.5rem)">Ready to start?</h2>
+					<p style="max-width:60ch;color:var(--text-300)">Tell us about your project. We'll confirm scope, timeline, and budget — then provide a clear fixed-scope quote.</p>
+
+					<form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="company" style="margin-top:1rem" aria-label="Contact form">
+						<input type="hidden" name="form-name" value="contact" />
+						<p style="position:absolute;left:-9999px"><label>Company <input name="company" autocomplete="off" /></label></p>
+
+						<div style="display:grid;gap:1rem">
+							<div style="display:grid;gap:1rem;grid-template-columns:1fr 1fr">
+								<label><span class="sr-only">Name</span><input required type="text" name="name" placeholder="Your name" autocomplete="name" /></label>
+								<label><span class="sr-only">Email</span><input required type="email" name="email" placeholder="Your email" autocomplete="email" /></label>
+							</div>
+							<div style="display:grid;gap:1rem;grid-template-columns:1fr 1fr">
+								<label><span class="sr-only">Phone</span><input type="tel" name="phone" inputmode="tel" placeholder="Phone (optional)" autocomplete="tel" /></label>
+								<label><span class="sr-only">Service</span>
+									<select name="service" aria-label="Select a service">
+										<option value="">Select a service</option>
+										<option>Decking</option>
+										<option>Pergolas / Outdoor</option>
+										<option>Carports / Cladding</option>
+										<option>Custom Joinery</option>
+										<option>Renovations</option>
+										<option>Roofing</option>
+										<option>Other</option>
+									</select>
+								</label>
+							</div>
+							<label><span class="sr-only">Message</span><textarea name="message" placeholder="Tell us about your project — location, timing, specific requirements…"></textarea></label>
+							<label style="display:flex;gap:.6rem;align-items:flex-start;color:var(--text-300);font-size:.92rem">
+								<input type="checkbox" required name="privacy" style="width:auto;margin-top:.25rem" />
+								<span>I consent to Sharpe Carpentry storing my details for the purpose of responding to this enquiry.</span>
+							</label>
+							<button class="btn" type="submit">Send Enquiry</button>
+						</div>
+						<p id="form-status" role="status" aria-live="polite" style="color:var(--text-300);margin-top:.6rem"></p>
+					</form>
+				</div>
+
+				<aside style="align-self:start;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.25rem;background:rgba(255,255,255,.03)">
+					<h3 style="margin:0 0 .25rem">Get in touch</h3>
+					<p style="margin:.25rem 0 1rem;color:var(--text-300)">We'll return your message promptly.</p>
+					<p><strong>Email:</strong> <a href="mailto:info@sharpecarpentry.com.au">info@sharpecarpentry.com.au</a></p>
+					<p><strong>Instagram:</strong> <a href="https://www.instagram.com/sharpey_carpentry" rel="noopener" target="_blank">@sharpey_carpentry</a></p>
+					<div style="margin-top:1rem">
+						<h4 style="margin:.5rem 0">Hours</h4>
+						<dl style="display:grid;grid-template-columns:auto 1fr;gap:.25rem 1rem;color:var(--text-300);margin:0">
+							<dt>Mon–Fri</dt>
+							<dd>7:00am – 5:00pm</dd>
+							<dt>Sat</dt>
+							<dd>By appointment</dd>
+							<dt>Sun</dt>
+							<dd>Closed</dd>
+						</dl>
+					</div>
+				</aside>
+			</div>
+			<div class="container" style="text-align:right;margin-top:1rem">
+				<a href="https://brittek.io" target="_blank" rel="noopener noreferrer" style="font-size:.8rem;color:var(--muted-400)">Website by Brittek Digital</a>
+			</div>
+		</section>
+	</main>
+
+	<!-- Footer -->
+	<footer role="contentinfo">
+		<div class="container foot">
+			<div class="brand"><span style="color:#02C996">Sharpe</span> <span>Carpentry</span></div>
+			<div style="color:#9CA3AF">© <span id="year"></span> Sharpe Carpentry — ABN 35 190 759 793 — Sydney, NSW</div>
+			<div>
+				<a href="https://www.instagram.com/sharpey_carpentry" target="_blank" rel="noopener" aria-label="Instagram" style="margin-right:.6rem">Instagram</a>
+				<a href="mailto:info@sharpecarpentry.com.au" aria-label="Email">Email</a>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Lightbox -->
+	<div id="lightbox" aria-modal="true" role="dialog" aria-label="Image viewer">
+		<button id="lb-close" aria-label="Close image viewer">×</button>
+		<img id="lb-img" alt="" />
+	</div>
+
+	<!-- Minimal Scripts -->
+	<script>
+		// Year
+		document.getElementById('year').textContent = new Date().getFullYear();
+		// Scroll progress
+		window.addEventListener('scroll', () => {
+			const el = document.getElementById('scroll-progress');
+			const y = document.body.scrollTop || document.documentElement.scrollTop;
+			const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+			if (el) el.style.transform = `scaleX(${h ? (y / h) : 0})`;
+		}, {
+			passive: true
+		});
+		(function() {
+			const imgs = document.querySelectorAll('#gallery .thumb');
+			if (!imgs.length) return;
+			const overlay = document.getElementById('lightbox');
+			const lbImg = document.getElementById('lb-img');
+			const lbClose = document.getElementById('lb-close');
+			let lastFocus = null;
+
+			function open(src, alt) {
+				lastFocus = document.activeElement;
+				lbImg.src = src;
+				lbImg.alt = alt || '';
+				overlay.style.display = 'flex';
+				document.body.style.overflow = 'hidden';
+				lbClose.focus();
+			}
+
+			function close() {
+				overlay.style.display = 'none';
+				document.body.style.overflow = '';
+				lbImg.removeAttribute('src');
+				if (lastFocus) lastFocus.focus();
+			}
+			// Focus trap
+			overlay.addEventListener('keydown', (e) => {
+				if (e.key === 'Tab') {
+					e.preventDefault();
+					lbClose.focus();
+				}
+			});
+			imgs.forEach(img => {
+				img.tabIndex = 0;
+				img.setAttribute('role', 'button');
+				img.setAttribute('aria-label', 'Open image in lightbox');
+				img.addEventListener('click', () => open(img.src, img.alt));
+				img.addEventListener('keydown', e => {
+					if (e.key === 'Enter' || e.key === ' ') {
+						e.preventDefault();
+						open(img.src, img.alt);
+					}
+				});
+			});
+			lbClose.addEventListener('click', close);
+			overlay.addEventListener('click', e => {
+				if (e.target === overlay) close();
+			});
+			window.addEventListener('keydown', e => {
+				if (overlay.style.display === 'flex' && e.key === 'Escape') close();
+			});
+		})();
+		(function() {
+			const form = document.getElementById('contact-form');
+			const status = document.getElementById('form-status');
+			if (!form || !status) return;
+			// Real-time validation feedback
+			const inputs = form.querySelectorAll('input[required], textarea[required]');
+			inputs.forEach(input => {
+				input.addEventListener('blur', () => {
+					if (input.value && input.checkValidity()) {
+						input.style.borderColor = 'var(--accent)';
+					} else if (input.value) {
+						input.style.borderColor = '#ef4444';
+					}
+				});
+			});
+			form.addEventListener('submit', (e) => {
+				const fd = new FormData(form);
+				const email = fd.get('email'),
+					name = fd.get('name'),
+					privacy = fd.get('privacy');
+				if (!name || !email || !privacy) {
+					e.preventDefault();
+					status.textContent = 'Please complete required fields.';
+					status.style.color = '#ef4444';
+					return;
+				}
+				const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email));
+				if (!ok) {
+					e.preventDefault();
+					status.textContent = 'Please enter a valid email address.';
+					status.style.color = '#ef4444';
+					return;
+				}
+				status.textContent = "Thanks for your enquiry! We'll contact you within 1–2 business days.";
+				status.style.color = '#22c55e';
+			});
+		})();
+	</script>
+
+	<!-- JSON-LD -->
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "HomeAndConstructionBusiness",
+			"name": "Sharpe Carpentry",
+			"url": "https://sharpecarpentry.com.au/",
+			"image": "https://assets.codepen.io/9806267/Premium+outdoor+deck+with+concealed+fixings.jpg",
+			"email": "info@sharpecarpentry.com.au",
+			"identifier": "ABN 35 190 759 793",
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "Sydney",
+				"addressRegion": "NSW",
+				"addressCountry": "AU"
+			},
+			"sameAs": ["https://www.instagram.com/sharpey_carpentry"],
+			"areaServed": [{
+				"@type": "City",
+				"name": "Sydney"
+			}],
+			"priceRange": "$$"
+		}
+	</script>
+</body>
+
+</html>
