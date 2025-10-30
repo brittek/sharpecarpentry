@@ -1,46 +1,23 @@
-# Sharpe Carpentry
+# Sharpe Carpentry Marketing Site
 
-**Website Project by [Brittek Digital](https://brittek.digital)**
+This repository hosts the static marketing page for [sharpecarpentry.com.au](https://sharpecarpentry.com.au/). The site is a single `index.html` document designed to be published via GitHub Pages.
 
-Sharpe Carpentry is a Sydney-based residential and commercial carpentry business specializing in renovations, decking, and bespoke woodwork.  
-This repository contains the official website codebase built and maintained by Brittek Digital.
+## Editing the site
+- Update the copy, imagery, or styling directly inside [`index.html`](index.html).
+- No build tools are required—open the file in your editor and commit the changes.
 
----
+## Local preview
+Open the file in a browser:
 
-## 🧩 Stack
-- **Framework:** Next.js 15 + TypeScript
-- **Animations:** GSAP + ScrollTrigger
-- **Styling:** TailwindCSS + Custom CSS Tokens
-- **Hosting:** Netlify (Preview) / Firebase (Production)
-- **CMS:** Markdown / JSON static data
-- **SEO:** Optimized with schema, OG tags, and canonical links
-
----
-
-## 🛠 Development Setup
 ```bash
-# Clone repo
-git clone https://github.com/brittek-digital/sharpe-carpentry.git
+# from the repo root
+google-chrome index.html
+# or use any browser capable of loading a local file
+```
 
-# Install dependencies
-npm install
+## Deployment
+1. Push to the `main` branch.
+2. GitHub Pages serves the latest commit (configured to use the repository root).
 
-# Run dev server
-npm run dev
-🚀 Deployment
-Production is deployed via Firebase Hosting with CI/CD handled through GitHub Actions.
-
-© 2025 Brittek Digital — All Rights Reserved.
-https://brittek.digital
-
-yaml
-Copy code
-
----
-
-### **5. Post-Creation Actions**
-
-After you hit **“Create repository”**, immediately:
-1. Clone locally:  
-   ```bash
-   git clone https://github.com/brittek-digital/sharpe-carpentry.git
+## Custom domain configuration
+Use the [`CNAME`](CNAME) file together with the DNS steps documented in [`docs/domain-setup.md`](docs/domain-setup.md) to point **sharpecarpentry.com.au** at this repository.
