@@ -31,9 +31,12 @@
 
   <!-- ===== LCP Preload (Deck hero) ===== -->
   <link rel="preload" as="image" fetchpriority="high" href="https://assets.codepen.io/9806267/Premium+outdoor+deck+with+concealed+fixings.jpg" imagesizes="100vw" />
+  <!-- Optional logo preloads -->
+  <link rel="preload" as="image" href="https://assets.codepen.io/9806267/2.svg" />
+  <link rel="preload" as="image" href="https://assets.codepen.io/9806267/3.svg" />
 
-  <!-- ===== Favicon ===== -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' stroke='none' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2316A34A'/%3E%3Ctext x='50' y='58' font-family='Inter,system-ui,sans-serif' font-size='56' text-anchor='middle' fill='white'%3ESC%3C/text%3E%3C/svg%3E" />
+  <!-- ===== Favicon (repo root) ===== -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
   <!-- ===== Styles ===== -->
   <style>
@@ -45,10 +48,12 @@
       --radius:14px; --shadow:0 10px 30px rgba(0,0,0,.35);
       --font-body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
       --font-head:'Manrope','Inter',system-ui,sans-serif;
-      /* Header & logo sizing */
-      --header-bg:#000;
-      --header-h: clamp(72px, 8svh, 92px); /* room for 60–64px logo + padding */
-      --logo-h: clamp(60px, 6vw, 64px);    /* your 2.svg target */
+
+      /* Header / logo sizing */
+      --header-bg:#000;                           /* true black to match mark */
+      --header-h: clamp(72px, 8svh, 92px);        /* breathing room */
+      --logo-h-desktop: clamp(60px, 6vw, 64px);   /* 2.svg target range */
+      --logo-h-mobile: clamp(46px, 6vw, 52px);    /* 3.svg comfortable mobile */
     }
 
     *,*::before,*::after{box-sizing:border-box}
@@ -83,16 +88,13 @@
       min-height:var(--header-h);
       gap:clamp(.5rem,2vw,1rem);
     }
-    .brand{
-      display:inline-flex;align-items:center;gap:.75rem;
-      line-height:0; /* removes stray inline spacing */
-      font-weight:800; transition:opacity .2s;
-    }
+    .brand{display:inline-flex;align-items:center;gap:.75rem;line-height:0;transition:opacity .2s}
     .brand:hover{opacity:.92}
-    .brand-logo{
-      height:var(--logo-h);
-      max-height:var(--logo-h);
-      width:auto; display:block; vertical-align:middle;
+
+    /* Picture swap: 2.svg desktop, 3.svg mobile */
+    .brand-img{height:var(--logo-h-mobile);width:auto;display:block;vertical-align:middle}
+    @media (min-width:768px){
+      .brand-img{height:var(--logo-h-desktop)}
     }
     .brand-text{display:none}
 
@@ -168,12 +170,14 @@
   <!-- Header -->
   <header class="site-header" role="banner" id="header">
     <nav class="container nav" aria-label="Primary">
+      <!-- Brand: desktop 2.svg, mobile 3.svg -->
       <a href="#decking" class="brand" aria-label="Sharpe Carpentry home">
-        <img class="brand-logo"
-             src="https://assets.codepen.io/9806267/2.svg"
-             alt="Sharpe Carpentry logo"
-             decoding="async" />
-        <span class="brand-text sr-only">Sharpe Carpentry</span>
+        <picture>
+          <source media="(min-width: 768px)" srcset="https://assets.codepen.io/9806267/2.svg" />
+          <source media="(max-width: 767.98px)" srcset="https://assets.codepen.io/9806267/3.svg" />
+          <img class="brand-img" src="https://assets.codepen.io/9806267/3.svg" alt="Sharpe Carpentry logo" decoding="async" />
+        </picture>
+        <span class="brand-text">Sharpe Carpentry</span>
       </a>
       <a class="btn" href="#contact" aria-label="Free Quote">Free Quote</a>
     </nav>
@@ -277,7 +281,7 @@
       </div>
     </section>
 
-    <!-- Recent Work (lightbox) -->
+    <!-- Recent Work -->
     <section class="container" id="gallery" aria-label="Recent Work" cv style="padding:clamp(3rem,8vw,5rem) 0;">
       <h2 style="text-align:center;margin:0 0 .5rem;font-size:clamp(1.8rem,4vw,2.5rem)">Recent Work</h2>
       <p style="text-align:center;color:var(--text-300);margin:0 auto 2rem;max-width:60ch">Explore our portfolio of precision craftsmanship across Sydney</p>
@@ -352,11 +356,11 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer (uses 1.svg as the main transparent logo) -->
   <footer role="contentinfo">
     <div class="container foot">
       <a href="#decking" class="brand" aria-label="Sharpe Carpentry home">
-        <img class="brand-logo" src="https://assets.codepen.io/9806267/SHARPE+CARPENTRY++LOGO.png" alt="Sharpe Carpentry logo" />
+        <img class="brand-img" src="https://assets.codepen.io/9806267/1.svg" alt="Sharpe Carpentry logo" />
       </a>
       <div style="color:#9CA3AF">© <span id="year"></span> Sharpe Carpentry — ABN 35 190 759 793 — Sydney, NSW</div>
       <div>
@@ -453,6 +457,7 @@
     "@type":"HomeAndConstructionBusiness",
     "name":"Sharpe Carpentry",
     "url":"https://sharpecarpentry.com.au/",
+    "logo":"https://sharpecarpentry.com.au/1.svg",
     "image":"https://assets.codepen.io/9806267/Premium+outdoor+deck+with+concealed+fixings.jpg",
     "email":"info@sharpecarpentry.com.au",
     "identifier":"ABN 35 190 759 793",
