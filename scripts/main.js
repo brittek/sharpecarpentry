@@ -3,11 +3,12 @@
 
   const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-  gsap.set([".t-sydney",".t-nsw",".t-company",".t-uc",".t-inquiryLabel",".t-phoneLabel",".t-email",".t-phone",".t-fine",".t-divider"], { opacity: 0 });
+  const baseElements = [".t-sydney",".t-nsw",".t-company",".t-uc",".t-inquiryLabel",".t-phoneLabel",".t-email",".t-phone",".t-fine",".t-divider"];
+  gsap.set(baseElements, { opacity: 0 });
   gsap.set(".t-logo", { opacity: 0, y: 18, scale: 0.985 });
 
   if(reduce){
-    gsap.set([".t-sydney",".t-nsw",".t-company",".t-uc",".t-inquiryLabel",".t-phoneLabel",".t-email",".t-phone",".t-fine",".t-divider",".t-logo"], { opacity: 1, y: 0, scale: 1 });
+    gsap.set([...baseElements, ".t-logo"], { opacity: 1, y: 0, scale: 1 });
     return;
   }
 
