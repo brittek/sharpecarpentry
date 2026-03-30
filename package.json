@@ -1,0 +1,27 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "This repository hosts the static marketing page for [sharpecarpentry.com.au](https://sharpecarpentry.com.au/). The site is a single `index.html` document designed to be published via GitHub Pages.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brittek/sharpecarpentry.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/brittek/sharpecarpentry/issues"
+  },
+  "homepage": "https://github.com/brittek/sharpecarpentry#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
+  }
+}
