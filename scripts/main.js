@@ -1,4 +1,4 @@
-(function(){
+document.addEventListener("DOMContentLoaded", () => {
   const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -51,7 +51,7 @@
     ease: "power2.out",
     delay: 0.6
   });
-})();
+});
 
 // Slider Logic
 document.addEventListener("DOMContentLoaded", () => {
