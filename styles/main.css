@@ -446,7 +446,7 @@ h2.gsap-reveal {
   transform: translateY(30px);
 }
 
-/* Fix for slider position */
+/* Default slider position */
 .slider-container {
   --slider-pos: 50%;
 }
