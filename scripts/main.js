@@ -54,18 +54,34 @@ document.addEventListener("DOMContentLoaded", () => {
   // Slider Logic
   const sliders = document.querySelectorAll('.slider-container');
 
+  // Centralized resize handler for all sliders
+  let ticking = false;
+  const updateAllImgWidths = () => {
+    sliders.forEach(container => {
+      const beforeImage = container.querySelector('.slider-image-before');
+      if (beforeImage) {
+        const img = beforeImage.querySelector('img');
+        if (img) img.style.width = `${container.offsetWidth}px`;
+      }
+    });
+    ticking = false;
+  };
+
+  window.addEventListener('resize', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateAllImgWidths();
+      });
+      ticking = true;
+    }
+  });
+
+  // Initial update
+  updateAllImgWidths();
+
   sliders.forEach(container => {
     const handle = container.querySelector('.slider-handle');
     const beforeImage = container.querySelector('.slider-image-before');
-
-    // Ensure image width matches container for proper clipping
-    const img = beforeImage.querySelector('img');
-    const updateImgWidth = () => {
-      img.style.width = `${container.offsetWidth}px`;
-    };
-
-    window.addEventListener('resize', updateImgWidth);
-    updateImgWidth();
 
     handle.addEventListener('input', (e) => {
       const val = e.target.value;
