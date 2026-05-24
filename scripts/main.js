@@ -9,52 +9,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if(reduce){
     gsap.set([...baseElements, ".t-logo"], { opacity: 1, y: 0, scale: 1 });
-    return;
+  } else {
+    tl.to([".t-sydney",".t-nsw"], { opacity: 1, y: 0, duration: 0.7, stagger: 0.08 }, 0.05)
+      .to(".t-company", { opacity: 1, duration: 0.8 }, 0.15)
+      .to(".t-logo", { opacity: 1, y: 0, scale: 1, duration: 0.95 }, 0.25)
+      .to(".t-uc", { opacity: 1, duration: 0.75 }, 0.55)
+      .to([".t-inquiryLabel",".t-phoneLabel"], { opacity: 1, duration: 0.6, stagger: 0.06 }, 0.75)
+      .to([".t-email",".t-phone"], { opacity: 1, duration: 0.65, stagger: 0.06 }, 0.85)
+      .to([".t-divider",".t-fine"], { opacity: 1, duration: 0.8, stagger: 0.06 }, 0.95);
+
+    gsap.to(".dot", {
+      boxShadow: "0 0 0 10px rgba(49,209,88,.06), 0 0 36px rgba(49,209,88,.28)",
+      duration: 2.8,
+      ease: "sine.inOut",
+      repeat: -1,
+      yoyo: true
+    });
+
+    gsap.to(".bottomGlow", {
+      opacity: 0.72,
+      duration: 3.2,
+      ease: "sine.inOut",
+      repeat: -1,
+      yoyo: true
+    });
+
+    gsap.to(".t-logo", {
+      y: -2,
+      duration: 4.2,
+      ease: "sine.inOut",
+      repeat: -1,
+      yoyo: true,
+      delay: 1.2
+    });
+
+    gsap.fromTo(".t-uc", { letterSpacing: "0.78em" }, {
+      letterSpacing: "0.65em",
+      duration: 1.2,
+      ease: "power2.out",
+      delay: 0.6
+    });
   }
 
-  tl.to([".t-sydney",".t-nsw"], { opacity: 1, y: 0, duration: 0.7, stagger: 0.08 }, 0.05)
-    .to(".t-company", { opacity: 1, duration: 0.8 }, 0.15)
-    .to(".t-logo", { opacity: 1, y: 0, scale: 1, duration: 0.95 }, 0.25)
-    .to(".t-uc", { opacity: 1, duration: 0.75 }, 0.55)
-    .to([".t-inquiryLabel",".t-phoneLabel"], { opacity: 1, duration: 0.6, stagger: 0.06 }, 0.75)
-    .to([".t-email",".t-phone"], { opacity: 1, duration: 0.65, stagger: 0.06 }, 0.85)
-    .to([".t-divider",".t-fine"], { opacity: 1, duration: 0.8, stagger: 0.06 }, 0.95);
-
-  gsap.to(".dot", {
-    boxShadow: "0 0 0 10px rgba(49,209,88,.06), 0 0 36px rgba(49,209,88,.28)",
-    duration: 2.8,
-    ease: "sine.inOut",
-    repeat: -1,
-    yoyo: true
-  });
-
-  gsap.to(".bottomGlow", {
-    opacity: 0.72,
-    duration: 3.2,
-    ease: "sine.inOut",
-    repeat: -1,
-    yoyo: true
-  });
-
-  gsap.to(".t-logo", {
-    y: -2,
-    duration: 4.2,
-    ease: "sine.inOut",
-    repeat: -1,
-    yoyo: true,
-    delay: 1.2
-  });
-
-  gsap.fromTo(".t-uc", { letterSpacing: "0.78em" }, {
-    letterSpacing: "0.65em",
-    duration: 1.2,
-    ease: "power2.out",
-    delay: 0.6
-  });
-});
-
-// Slider Logic
-document.addEventListener("DOMContentLoaded", () => {
+  // Slider Logic
   const sliders = document.querySelectorAll('.slider-container');
 
   sliders.forEach(container => {
@@ -77,10 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
       container.style.setProperty('--slider-pos', `${val}%`);
     });
   });
-});
 
-// GSAP Scroll Reveals
-document.addEventListener("DOMContentLoaded", () => {
+  // GSAP Scroll Reveals
   gsap.registerPlugin(ScrollTrigger);
 
   const reveals = document.querySelectorAll('.gsap-reveal');
